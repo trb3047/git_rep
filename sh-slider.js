@@ -286,7 +286,7 @@ sh-slider.2.0
                             if($this2.hasClass(selector[i])){
                                 var position2 = $this2.attr("data-position").split(",");
                                 var left2 = position2[0];
-                                var right2 = slide_w - left2 - $this.width();
+                                var right2 = slide_w - left2 - $this2.width();
 
                                 $this2.css({"left":"inherit","right":right2+"px"});
                                 $this2.stop().animate({"right":-$this2.width()+"px"},300+((200*i)),"easeInOutQuart");
