@@ -79,7 +79,7 @@ http://shtar.co.kr/
 
         //슬라이드 css 조절
         if(type == "slide"){
-        obj.parent().css({"overflow":"hidden"})
+        obj.parent().css({"overflow":"hidden"});
         obj.css({"width":slide_total*slide_w,"overflow":"hidden"});
         slider.css({"float":"left","width":slide_w});
         }else if(type == "fade"){
@@ -263,9 +263,7 @@ http://shtar.co.kr/
             if(slide_total > 1 && timer == 0){
 				timer = 1;
                 if(type == "slide"){
-                    obj.append(slide_array[slide_num]);
-                    slider = obj.children();
-                    var last = slider[slide_total-1];
+                    var last = slide_array[slide_num];
                     obj.prepend(last);
                     obj.css("margin-left",-slide_w); 
                     if(multi_img){
@@ -332,29 +330,33 @@ http://shtar.co.kr/
             setting.play();
         })
         obj.siblings(".l_btn").on('click',function(e){
-            setting.stop();
-            e.preventDefault();
-            slide_way = "left";
-            if(slide_num == 0){
-                slide_num = slide_total-1;
-            }else{
-                slide_num--;
+            if(timer == 0){ 
+                setting.stop();
+                e.preventDefault();
+                slide_way = "left";
+                if(slide_num == 0){
+                    slide_num = slide_total-1;
+                }else{
+                    slide_num--;
+                }
+                left_slide(slide_num);
+                //console.log(num);
+                setting.play();
             }
-            left_slide(slide_num);
-            //console.log(num);
-            setting.play();
         })
         obj.siblings(".r_btn").on('click',function(e){
-            setting.stop();
-            e.preventDefault();
-            slide_way = "right";
-            if(slide_num == slide_total-1){
-                slide_num = 0;
-            }else{
-                slide_num++;
+            if(timer == 0){
+                setting.stop();
+                e.preventDefault();
+                slide_way = "right";
+                if(slide_num == slide_total-1){
+                    slide_num = 0;
+                }else{
+                    slide_num++;
+                }
+                right_slide(slide_num);
+                setting.play();
             }
-            right_slide(slide_num);
-            setting.play();
         })
         //마우스 오버시 멈춤
         if(hover_stop == true){
@@ -367,4 +369,3 @@ http://shtar.co.kr/
         
     };
 })(jQuery);
-    
