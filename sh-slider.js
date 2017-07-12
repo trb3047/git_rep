@@ -153,7 +153,7 @@ sh-slider.2.0
                     var $this = slider.eq(e).find("."+selector[i]);
                     //console.log($this);
                     if($this.hasClass(selector[i])){
-                        var position = $this.attr("position").split(",");
+                        var position = $this.attr("data-position").split(",");
                         var top = position[1];
                         var left = position[0];
                         $this.css({"position":"absolute","top":top+"px","left":left+"px"});
@@ -218,7 +218,7 @@ sh-slider.2.0
                         for(var i=0;i<multi_length;i++){
                             var $this = slider.eq(slide_num).find("."+selector[i]);
                             if($this.hasClass(selector[i])){
-                                var position = $this.attr("position").split(",");
+                                var position = $this.attr("data-position").split(",");
                                 var left = position[0];
                                 //console.log(top);
                                 $this.css({"right":"inherit","left":"100%"});
@@ -226,7 +226,7 @@ sh-slider.2.0
                             }
                             var $this2 = obj.children().eq(slide_total).find("."+selector[i]);
                             if($this2.hasClass(selector[i])){
-                                var position2 = $this2.attr("position").split(",");
+                                var position2 = $this2.attr("data-position").split(",");
                                 var left2 = position2[0];
                                 $this2.css({"right":"inherit","left":left2+"px"});
                                 $this2.stop().animate({"left":-$this2.width()+"px"},300+((200*i)),"easeInOutQuart");
@@ -274,7 +274,7 @@ sh-slider.2.0
                         for(var i=0;i<multi_length;i++){
                             var $this = slider.eq(slide_num).find("."+selector[i]);
                             if($this.hasClass(selector[i])){
-                            var position = $this.attr("position").split(",");
+                            var position = $this.attr("data-position").split(",");
                             var left = position[0];
                             var right = slide_w - left - $this.width();
                             //console.log(top);
@@ -284,7 +284,7 @@ sh-slider.2.0
                             
                             var $this2 = obj.children().eq(slide_total).find("."+selector[i]);
                             if($this2.hasClass(selector[i])){
-                                var position2 = $this2.attr("position").split(",");
+                                var position2 = $this2.attr("data-position").split(",");
                                 var left2 = position2[0];
                                 var right2 = slide_w - left2 - $this.width();
 
