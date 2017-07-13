@@ -33,10 +33,10 @@ sh-slider.2.0
         //버튼 이미지
         mbtn_off : "images/mbtn_off.png",
         mbtn_on : "images/mbtn_on.png",
-        prev : "images/l_btn.png",
-        next : "images/r_btn.png",
-		play_btn : "images/play.png",
-		stop_btn : "images/stop.png",
+        btn_prev : "images/l_btn.png",
+        btn_next : "images/r_btn.png",
+        btn_play : "images/play.png",
+        btn_stop : "images/stop.png",
         //마우스 오버시 멈춤
         hover_stop : true,
         //슬라이드 이미지 위에 여러 컷의 이미지 등장 효과
@@ -78,7 +78,7 @@ sh-slider.2.0
         var slide_total = slider.length;
         //easing 효과
         var easing = (multi_img) ? "easeInOutCubic" : "swing";
-
+        
         //슬라이드 연속클릭 방지
         var timer = 0;
 
@@ -110,10 +110,10 @@ sh-slider.2.0
             var mbtn = obj.siblings(".mbtn");
             var mbtn_off = setting.mbtn_off;
             var mbtn_on = setting.mbtn_on;
-			var play_btn = setting.play_btn;
-			var stop_btn = setting.stop_btn;
+			var btn_play = setting.btn_play;
+			var btn_stop = setting.btn_stop;
 			if(play_use == true){
-				mbtn.append("<a href='javascript:;' class='play' title='자동으로 슬라이드 넘기기'><img src='"+play_btn+"'></a><a href='javascript:;' class='stop' title='슬라이드 멈추기'><img src='"+stop_btn+"'></a>")
+				mbtn.append("<a href='javascript:;' class='play' title='자동으로 슬라이드 넘기기'><img src='"+btn_play+"'></a><a href='javascript:;' class='stop' title='슬라이드 멈추기'><img src='"+btn_stop+"'></a>")
 			}
             for(var i=0;i<slider.length;i++){
                 mbtn.append("<a href='javascript:;' class='btn' title='"+(i+1)+"번째 슬라이드로 이동'><img src='"+mbtn_off+"' alt=''></a>");
@@ -128,8 +128,8 @@ sh-slider.2.0
         }
         //화살표 사용시 화살표 출력
         if(arrow_use == true){
-            obj.parent().append("<a href='javascript:;' class='arrow prev' title='이전 슬라이드로 넘기기'><img src='"+setting.prev+"'></a>");
-            obj.parent().append("<a href='javascript:;' class='arrow next' title='다음 슬라이드로 넘기기'><img src='"+setting.next+"'></a>");
+            obj.parent().append("<a href='javascript:;' class='arrow prev' title='이전 슬라이드로 넘기기'><img src='"+setting.btn_prev+"'></a>");
+            obj.parent().append("<a href='javascript:;' class='arrow next' title='다음 슬라이드로 넘기기'><img src='"+setting.btn_next+"'></a>");
             //화살표 위치 조절
             var arrow = obj.siblings(".arrow")
             var prev = obj.siblings(".prev");
@@ -258,6 +258,7 @@ sh-slider.2.0
                     timer = 0;
                 }
             }
+              
         }
         //좌측 슬라이드
         function left_slide(slide_num){
@@ -309,6 +310,7 @@ sh-slider.2.0
                    fade(slide_num);
 				   timer = 0;
                 }
+				
             }
         }
         
@@ -320,15 +322,15 @@ sh-slider.2.0
         }
         
         //재생버튼 클릭 이벤트
-        obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
-            setting.stop();
-            setting.play();
-        });
+		obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
+			setting.stop();
+			setting.play();
+		});
         
         //멈춤버튼 클릭 이벤트
-        obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
-            setting.stop();
-        });
+		obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
+			setting.stop();
+		});
         
         //슬라이드 버튼 클릭 이벤트
         obj.siblings(".mbtn").children(".btn").on('focusin click',function(e){
