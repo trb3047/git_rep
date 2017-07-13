@@ -221,36 +221,33 @@ sh-slider.2.0
                                 var position = $this.attr("data-position").split(",");
                                 var left = position[0];
                                 //console.log(top);
-                                $this.css({"right":"inherit","left":"100%"});
+                                $this.css({"left":"100%"});
                                 $this.stop().delay(500).animate({"left":left+"px"},300+((400*i)),"easeOutQuart");
                             }
                             var $this2 = obj.children().eq(slide_total).find("."+selector[i]);
                             if($this2.hasClass(selector[i])){
-                                var position2 = $this2.attr("data-position").split(",");
-                                var left2 = position2[0];
-                                $this2.css({"right":"inherit","left":left2+"px"});
                                 $this2.stop().animate({"left":-$this2.width()+"px"},300+((200*i)),"easeInOutQuart");
                             }
                         }
                     }
                     //슬라이드
                     if(slide_way == "right" || slide_way == "left"){
-                        obj.children().eq(slide_total).css("right","inherit").stop().animate({
+                        obj.children().eq(slide_total).stop().animate({
                             "left"  : "-100%"
                         },animate_time,easing);
                         obj.append(slider.eq(slide_num));
-                        slider.eq(slide_num).css({"right":"inherit","left":"100%"}).stop().animate({
+                        slider.eq(slide_num).css({"left":"100%"}).stop().animate({
                              "left":0
                         },animate_time,easing,function(){
                              timer = 0; 
                         });
                     }else if(slide_way == "top" || slide_way == "bottom"){
-                        obj.children().eq(slide_total).css({"top":"inherit","bottom":0}).stop().animate({
-                            "bottom"  : "-100%"
+                        obj.children().eq(slide_total).stop().animate({
+                            "top"  : "100%"
                         },animate_time,easing);
                         obj.append(slider.eq(slide_num));
-                        slider.eq(slide_num).css({"top":"inherit","bottom":"100%"}).stop().animate({
-                             "bottom":0
+                        slider.eq(slide_num).css({"top":"-100%"}).stop().animate({
+                             "top":0
                         },animate_time,easing,function(){
                              timer = 0; 
                         });
@@ -274,42 +271,35 @@ sh-slider.2.0
                         for(var i=0;i<multi_length;i++){
                             var $this = slider.eq(slide_num).find("."+selector[i]);
                             if($this.hasClass(selector[i])){
-                            var position = $this.attr("data-position").split(",");
-                            var left = position[0];
-                            var right = slide_w - left - $this.width();
-                            //console.log(top);
-                            $this.css({"left":"inherit","right":"100%"});
-                            $this.stop().delay(500).animate({"right":right+"px"},300+((300*i)),"easeOutQuart");
+                                var position = $this.attr("data-position").split(",");
+                                var left = position[0];
+                                //console.log(top);
+                                $this.css({"left":-$this.width()+"px"});
+                                $this.stop().delay(500).animate({"left":left+"px"},300+((300*i)),"easeOutQuart");
                             }
-                            
                             var $this2 = obj.children().eq(slide_total).find("."+selector[i]);
                             if($this2.hasClass(selector[i])){
-                                var position2 = $this2.attr("data-position").split(",");
-                                var left2 = position2[0];
-                                var right2 = slide_w - left2 - $this2.width();
-
-                                $this2.css({"left":"inherit","right":right2+"px"});
-                                $this2.stop().animate({"right":-$this2.width()+"px"},300+((200*i)),"easeInOutQuart");
+                                $this2.stop().animate({"left":"100%"},300+((200*i)),"easeInOutQuart");
                             }
                         }
                     }
                     //슬라이드
                     if(slide_way == "left" || slide_way == "right"){
-                        obj.children().eq(slide_total).css("left","inherit").stop().animate({
-                            "right"  : "-100%"
+                        obj.children().eq(slide_total).stop().animate({
+                            "left"  : "100%"
                         },animate_time,easing);
                         obj.append(slider.eq(slide_num));
-                        slider.eq(slide_num).css({"left":"inherit","right":"100%"}).stop().animate({
-                             "right":0
+                        slider.eq(slide_num).css({"left":"-100%"}).stop().animate({
+                             "left":0
                         },animate_time,easing,function(){
                              timer = 0; 
                         });
                     }else if(slide_way == "bottom" || slide_way == "top"){
-                        obj.children().eq(slide_total).css({"bottom":"inherit","top":0}).stop().animate({
+                        obj.children().eq(slide_total).css({"top":0}).stop().animate({
                             "top"  : "-100%"
                         },animate_time,easing);
                         obj.append(slider.eq(slide_num));
-                        slider.eq(slide_num).css({"bottom":"inherit","top":"100%"}).stop().animate({
+                        slider.eq(slide_num).css({"top":"100%"}).stop().animate({
                              "top":0
                         },animate_time,easing,function(){
                              timer = 0; 
@@ -331,15 +321,18 @@ sh-slider.2.0
             }
         }
         
+        //재생버튼 클릭 이벤트
 		obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
 			setting.stop();
 			setting.play();
-		})
+		});
         
+        //멈춤버튼 클릭 이벤트
 		obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
 			setting.stop();
-		})
+		});
         
+        //슬라이드 버튼 클릭 이벤트
         obj.siblings(".mbtn").children(".btn").on('focusin click',function(e){
             setting.stop();
             var check_num = $(this).index();
@@ -353,7 +346,9 @@ sh-slider.2.0
                 left_slide(check_num);
             }
             setting.play();
-        })
+        });
+        
+        //이전 버튼 클릭 이벤트
         prev.on('click',function(e){
             if(timer == 0){ 
                 setting.stop();
@@ -367,7 +362,9 @@ sh-slider.2.0
                 //console.log(num);
                 setting.play();
             }
-        })
+        });
+        
+        //다음 버튼 클릭 이벤트
         next.on('click',function(e){
             if(timer == 0){
                 setting.stop();
@@ -380,7 +377,8 @@ sh-slider.2.0
                 right_slide(slide_num);
                 setting.play();
             }
-        })
+        });
+        
         //마우스 오버시 멈춤
         if(hover_stop == true){
             obj.hover(function(){
