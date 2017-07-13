@@ -79,8 +79,8 @@ sh-slider.2.0
         //easing 효과
         var easing = (multi_img) ? "easeInOutCubic" : "swing";
 
-		//슬라이드 연속클릭 방지
-		var timer = 0;
+        //슬라이드 연속클릭 방지
+        var timer = 0;
 
         //슬라이드 css 조절
         if(type){
@@ -258,7 +258,6 @@ sh-slider.2.0
                     timer = 0;
                 }
             }
-              
         }
         //좌측 슬라이드
         function left_slide(slide_num){
@@ -310,7 +309,6 @@ sh-slider.2.0
                    fade(slide_num);
 				   timer = 0;
                 }
-				
             }
         }
         
@@ -322,15 +320,15 @@ sh-slider.2.0
         }
         
         //재생버튼 클릭 이벤트
-		obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
-			setting.stop();
-			setting.play();
-		});
+        obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
+            setting.stop();
+            setting.play();
+        });
         
         //멈춤버튼 클릭 이벤트
-		obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
-			setting.stop();
-		});
+        obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
+            setting.stop();
+        });
         
         //슬라이드 버튼 클릭 이벤트
         obj.siblings(".mbtn").children(".btn").on('focusin click',function(e){
