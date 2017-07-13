@@ -35,8 +35,8 @@ sh-slider.2.0
         mbtn_on : "images/mbtn_on.png",
         btn_prev : "images/l_btn.png",
         btn_next : "images/r_btn.png",
-        btn_play : "images/play.png",
-        btn_stop : "images/stop.png",
+		btn_play : "images/play.png",
+		btn_stop : "images/stop.png",
         //마우스 오버시 멈춤
         hover_stop : true,
         //슬라이드 이미지 위에 여러 컷의 이미지 등장 효과
@@ -134,7 +134,8 @@ sh-slider.2.0
             var arrow = obj.siblings(".arrow")
             var prev = obj.siblings(".prev");
             var next = obj.siblings(".next");
-            var arrow_h = prev.height();
+            arrow.css("display","block");
+            var arrow_h = prev.outerHeight();
             obj.parent().css({"position":"relative"});
             arrow.css({"position":"absolute","top":"50%","margin-top":-arrow_h/2+"px"});
             prev.css({"left":0});
