@@ -322,17 +322,23 @@ sh-slider.2.0
             }
         }
         
-        //재생버튼 클릭 이벤트
-		obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
-			setting.stop();
-			setting.play();
-		});
+        if(play_use){
+            
+            //재생버튼 클릭 이벤트
+            obj.siblings(".mbtn").children(".play").on('focusin click',function(e){
+                setting.stop();
+                setting.play();
+            });
+
+            //멈춤버튼 클릭 이벤트
+            obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
+                setting.stop();
+            });
+            
+        }
         
-        //멈춤버튼 클릭 이벤트
-		obj.siblings(".mbtn").children(".stop").on('focusin click',function(e){
-			setting.stop();
-		});
-        
+        if(btn_use){
+            
         //슬라이드 버튼 클릭 이벤트
         obj.siblings(".mbtn").children(".btn").on('focusin click',function(e){
             setting.stop();
@@ -349,6 +355,10 @@ sh-slider.2.0
             setting.play();
         });
         
+        }
+        
+        if(arrow_use){
+            
         //이전 버튼 클릭 이벤트
         prev.on('click',function(e){
             if(timer == 0){ 
@@ -379,6 +389,8 @@ sh-slider.2.0
                 setting.play();
             }
         });
+        
+        }
         
         //마우스 오버시 멈춤
         if(hover_stop == true){
