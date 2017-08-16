@@ -22,8 +22,8 @@ sh-slider.2.0
         btn_use : true,
         //화살표 출력 유무
         arrow_use : true,
-		//멈춤,재생 버튼 출력 유무
-		play_use : true,
+        //멈춤,재생 버튼 출력 유무
+        play_use : true,
         //자동 반복 유무
         auto_start : true,
         //슬라이드 방향
@@ -35,8 +35,8 @@ sh-slider.2.0
         mbtn_on : "images/mbtn_on.png",
         btn_prev : "images/l_btn.png",
         btn_next : "images/r_btn.png",
-		btn_play : "images/play.png",
-		btn_stop : "images/stop.png",
+        btn_play : "images/play.png",
+        btn_stop : "images/stop.png",
         //마우스 오버시 멈춤
         hover_stop : true,
         //슬라이드 이미지 위에 여러 컷의 이미지 등장 효과
@@ -110,11 +110,11 @@ sh-slider.2.0
             var mbtn = obj.siblings(".mbtn");
             var mbtn_off = setting.mbtn_off;
             var mbtn_on = setting.mbtn_on;
-			var btn_play = setting.btn_play;
-			var btn_stop = setting.btn_stop;
-			if(play_use == true){
-				mbtn.append("<a href='javascript:;' class='play' title='자동으로 슬라이드 넘기기'><img src='"+btn_play+"'></a><a href='javascript:;' class='stop' title='슬라이드 멈추기'><img src='"+btn_stop+"'></a>")
-			}
+            var btn_play = setting.btn_play;
+            var btn_stop = setting.btn_stop;
+            if(play_use == true){
+                mbtn.append("<a href='javascript:;' class='play' title='자동으로 슬라이드 넘기기'><img src='"+btn_play+"'></a><a href='javascript:;' class='stop' title='슬라이드 멈추기'><img src='"+btn_stop+"'></a>")
+            }
             for(var i=0;i<slider.length;i++){
                 mbtn.append("<a href='javascript:;' class='btn' title='"+(i+1)+"번째 슬라이드로 이동'><img src='"+mbtn_off+"' alt=''></a>");
             }
@@ -212,7 +212,7 @@ sh-slider.2.0
         function right_slide(slide_num){
             //이미지가 1개 이상일 경우 우측에서 슬라이드
             if(slide_total > 1 && timer == 0){
-				timer = 1;
+                timer = 1;
                 if(type == "slide"){
                     //멀티이미지 효과
                     if(multi_img){
@@ -265,7 +265,7 @@ sh-slider.2.0
         function left_slide(slide_num){
             //이미지가 1개 이상일 경우 좌측에서 슬라이드
             if(slide_total > 1 && timer == 0){
-				timer = 1;
+                timer = 1;
                 if(type == "slide"){ 
                     //멀티이미지 효과
                     if(multi_img){
@@ -308,8 +308,8 @@ sh-slider.2.0
                     }
                     btn_trans();
                 }else if(type == "fade"){
-                   fade(slide_num);
-				   timer = 0;
+                    fade(slide_num);
+                    timer = 0;
                 }
 				
             }
@@ -343,7 +343,7 @@ sh-slider.2.0
         obj.siblings(".mbtn").children(".btn").on('focusin click',function(e){
             setting.stop();
             var check_num = $(this).index();
-			if(play_use == true) check_num -= 2;
+            if(play_use == true) check_num -= 2;
             //console.log(check_num);
             if(check_num > slide_num){
                 slide_num = check_num;
