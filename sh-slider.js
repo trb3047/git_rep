@@ -64,7 +64,7 @@ sh-slider.2.0
         var auto_start = setting.auto_start;
         var btn_use = setting.btn_use;
         var arrow_use = setting.arrow_use;
-		var play_use = setting.play_use;
+        var play_use = setting.play_use;
         var slide_way = setting.slide_way;
         var width_type = setting.width_type;
         var hover_stop = setting.hover_stop;
